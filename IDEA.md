@@ -28,7 +28,8 @@ Not a replacement for Yubico Authenticator. It's a **guided companion** for the 
 - **Passkeys and security keys (FIDO2/U2F):** explain what they are, guide the user through adding the key on popular sites, either as a passkey (sign in with the key, no password) or as a security key (the key as a second step after the password). Manage the key's PIN, and list or remove passkeys stored on the key.
 - **6-digit codes (OATH TOTP):** add accounts by scanning a QR code on screen or pasting a setup link; show codes; copy them with one click.
 - **Encrypt and sign (OpenPGP):** create one key pair for the person, put it on both YubiKeys, export the public key, and guide the user through using it in common apps (Thunderbird, Kleopatra, GnuPG). Manage the PIN, admin PIN and reset code, and the "touch to use" setting. The app does not send or read email itself.
-- **Certificates and smart card (PIV):** create one key pair and a certificate for each use (sign in, sign documents), put them on both YubiKeys, and export the certificate. Guide the user through common uses such as pairing the key with their Mac account, SSH, and signing PDFs. Import a certificate someone else issued. Manage the PIN and PUK; the management key stays out of sight (see Encrypted secrets file).
+- **Certificates and smart card (PIV):** create one key pair and a certificate for each use (sign in, sign documents), put them on both YubiKeys, and export the certificate. Guide the user through common uses such as pairing the key with their Mac account, SSH, and signing PDFs. Import a certificate someone else issued. Manage the PIN and PUK; the management key stays out of sight in the app and is only printed on the recovery sheet (see PINs).
+- **Mexico's e.firma (SAT FIEL):** import the user's `.cer`, `.key` and password, check the key matches the certificate, and put both on the signature slot (9c) of both YubiKeys, in place of the app-made signing certificate. The key goes into the secrets file like any other PIV key. Then set up PDF signing in the user's existing apps (Okular first) and show the steps. The app never signs PDFs itself and never asks the user to delete the original files: SAT needs them to renew the e.firma.
 - **Button features (OTP slots):** explain why the key types random letters when touched (factory Yubico OTP in the short-press slot) and offer to move it to long press or remove it. Set up challenge-response for password managers and computer login (for example KeePassXC), on both keys.
 - **Encrypted secrets file (age):** every secret the app needs to set up a spare or replacement key later (6-digit code setup secrets, challenge-response secrets, the OpenPGP and PIV keys, the OpenPGP admin PIN and reset code, the PIV PUK) is kept in one file encrypted with [age](https://age-encryption.org/v1) to the YubiKeys. Nothing secret is ever written to disk unencrypted.
 - **Backup key:** setup asks for two keys from the start and treats the second key as part of setup, not an extra. The spare is optional, but skipping it brings a clear, repeated warning (see User workflows).
@@ -54,7 +55,7 @@ Secrets can't be copied off a YubiKey. What that means depends on the feature:
 
 - 6-digit codes, OpenPGP, PIV and challenge-response: write the secret to both keys in one step if both are plugged in, otherwise prompt for the second key while the secret is still in memory. Then add it to the encrypted secrets file (below) and wipe it from memory. Never write it to disk unencrypted.
 - OpenPGP and PIV: generate key pairs in the app's memory (not on the YubiKey), so both YubiKeys hold the same identity. This trades "the key never existed outside the hardware" for "losing one YubiKey loses nothing", which is the right trade for most people.
-- 6-digit codes: as an opt-in, also offer a printable recovery sheet with the QR code, for the case where both YubiKeys are lost and the secrets file can't be opened. The sheet should explain plainly that anyone holding it can make that site's codes, and suggest storing it like a passport.
+- **Recovery sheet, one per key** (template: `templates/recovery-sheet/`): a printable sheet with everything needed to recover or replace that key, for the case where the YubiKeys are lost and the secrets file can't be opened. It prints the machine-made secrets that can't set a new PIN (PIV management key, 6-digit code secrets with their QR codes, challenge-response secrets) and the identities on the key (certificates, OpenPGP fingerprints, passkey sites, secrets file recipients). The PIN, the PUK, the OpenPGP admin PIN and the OpenPGP reset code are never printed: the sheet has empty boxes and the user writes them by hand. Private keys are not printed; they live in the secrets file, and the e.firma also in SAT's original files. The e.firma password isn't on the sheet. The sheet says plainly that anyone holding it and the key can sign in and sign as the user, and to store it like a passport. A new sheet is due whenever one of its secrets changes, and the old one should be destroyed.
 - Passkeys and security keys: prompt "now add your spare key" right after each site is registered, and keep any site with only one key on the checklist as "spare missing" so the user can finish it later.
 
 ## Encrypted secrets file (age)
@@ -78,8 +79,8 @@ Whatever the user picks gets a plain name ("your secrets key"); "OpenPGP", "PIV"
 ### PINs
 
 - **One PIN for the person:** the passkey PIN, the OpenPGP user PIN and the PIV PIN are set to the same value. It must be 6 to 8 **ASCII** characters (letters without accents, digits, common symbols): PIV stores the PIN as 6 to 8 bytes and the YubiKey allows any ASCII character there ([Yubico](https://docs.yubico.com/yesdk/users-manual/application-piv/pin-puk-mgmt-key.html)), while an accented letter takes 2 bytes and isn't ASCII. 6 is also the OpenPGP minimum. Because a Spanish keyboard makes "ñ" or "á" easy to type, the PIN screen checks this as the user types and explains the rule in plain words ("letters without accents, numbers and symbols"), instead of failing later when the PIN is written to the key.
-- **Admin codes are different and random:** the OpenPGP admin PIN, the OpenPGP reset code and the PIV PUK are never the same as the PIN. The app generates them from printable ASCII (PUKs with bytes above `0x7F` are rejected from firmware 5.7) and stores them only in the secrets file; the user never has to remember them. If one key's PIN gets blocked, the spare opens the file and the app unblocks the first key with the stored reset code or PUK.
-- **PIV management key:** random, and stored on the key protected by the PIN, which is how `ykman` and Yubico Authenticator handle it (`yubikit`'s `piv_util` covers this). Other tools keep working with the key.
+- **Admin codes are different and random:** the OpenPGP admin PIN, the OpenPGP reset code and the PIV PUK are never the same as the PIN. The app generates them as 8 printable ASCII characters (PUKs with bytes above `0x7F` are rejected from firmware 5.7; 8 is the OpenPGP admin PIN minimum and the PIV PUK maximum, and fits the 8 boxes on the recovery sheet) and stores them in the secrets file; the user never has to remember them. Each one can set a new PIN, so none of them is ever sent to a printer: the app shows them once on screen for the user to copy by hand onto the recovery sheet. If one key's PIN gets blocked, the spare opens the file and the app unblocks the first key with the stored reset code or PUK.
+- **PIV management key:** random, and stored on the key protected by the PIN, which is how `ykman` and Yubico Authenticator handle it (`yubikit`'s `piv_util` covers this). Other tools keep working with the key. It is also printed on the recovery sheet, so the key can still be managed with other tools if the app is gone.
 
 ### Other rules
 
@@ -109,6 +110,7 @@ Kept as common and simple as possible. Workflows 1–7 are the product; 8–12 a
 | 10 | Sign in to my computer | once per setup |
 | 11 | Encrypt and sign email | once per setup |
 | 12 | Give away or reset a key | rare |
+| 13 | Sign PDFs with my e.firma (Mexico) | once per e.firma issue or renewal |
 
 ### Decisions
 
@@ -190,6 +192,14 @@ Name and email → OpenPGP key pair created in memory, written to both keys and 
 
 Shows what will be lost (sites, codes, keys), asks the user to remove the key from every site on the checklist first, runs the secrets file check (see Encrypted secrets file → Other rules), then resets with a final, plain confirmation.
 
+### 13. Sign PDFs with my e.firma
+
+Pick the `.cer` and `.key` files and type the e.firma password → the app checks they belong together and shows the name, RFC and expiry date from the certificate → key and certificate written to slot 9c on both keys and to the secrets file, each key checked with a test signature → PDF signing set up in the user's app (Okular first), with the steps. The status view ("Am I protected?") shows the e.firma expiry date. A renewed e.firma has a new key, so the user runs this workflow again and the old one is replaced on both keys.
+
+- **Expired e.firma:** the import is blocked. The app shows the expiry date and says the e.firma has to be renewed with SAT first.
+- **Factory PUK:** the import is blocked while a key still has the factory PUK, because the PUK can set a new PIN and anyone holding the key could then sign as the user. The app offers to change it on the spot and saves the new PUK in the secrets file.
+- **Spare without PIV** (for example the Security Key series): the e.firma goes on the PIV key only, with a clear warning that losing that key means importing the e.firma again from the original files or the secrets file onto a replacement key.
+
 ## Languages
 
 Spanish and English at launch. Every string goes through the translation system from day one, with no hard-coded text.
@@ -221,11 +231,14 @@ Spanish and English at launch. Every string goes through the translation system 
 
 **PIV certificates:** self-signed X.509 certificates need a certificate library, for example `rcgen` or RustCrypto's `x509-cert`. Pick during prototyping.
 
+**e.firma:** reading SAT's `.key` file (password-protected PKCS#8) and matching it to the `.cer` is already proven. Importing the e.firma's RSA 2048 key and its certificate into slot 9c is proven with `ykman` on a YubiKey 5C NFC (firmware 5.7.4): `ykman piv certificates import --verify` made a test signature with slot 9c and checked it against the public key in the `.cer`. Still to check: the same import through `yubikit`, and a YubiKey 4. The app runs the same test signature on each key after every e.firma import; `ykman piv info` alone only shows the certificate, not that the matching key is on the card. If Okular doesn't find the certificate on the YubiKey, fix it upstream (Okular/Poppler) rather than in the app.
+
 ## Roadmap (after the initial release)
 
 - **Android:** `yubikit` lists no Android transport. With `default-features = false` it accepts custom connection implementations. Open question: implement its `Connection` trait over Android's USB Host and NFC APIs (via JNI), or bridge to Yubico's `yubikit-android` (Java/Kotlin) and give up the shared Rust protocol layer. Also decide whether to support phone + key over NFC, since this audience mostly lives on their phones.
 - **iOS:** the UI side is covered by Slint (see above); builds need macOS + Xcode. Open question: how to reach the key on iOS (NFC and Lightning/USB-C), since `yubikit` lists no iOS transport. Options are a custom `Connection` over iOS APIs, or bridging to Yubico's iOS SDK.
 - **Encrypt your own files with age:** let the user encrypt and open their own files with the same unlock options as the secrets file. This needs its own design (file picker, sharing with other people, what happens when a key is replaced), so it stays out of the first release.
+- **e.firma as a signing standard:** there is no common way to check a PDF signed with an e.firma today. Work towards one: help people who receive a signed PDF check it against SAT's certificates, and contribute fixes to PDF tools where needed.
 - **Community site directory:** add a community-maintained directory of sites and their supported methods for search, alongside the curated list. Check the licence and data format first.
 
 ## Out of scope
