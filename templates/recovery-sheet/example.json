@@ -111,7 +111,7 @@
     }
   ],
   "secrets_file": {
-    "path": "~/.local/share/yubicox/secretos.age",
+    "path": "~/.local/share/kenaz/secretos.age",
     "unlock": [
       {
         "method": "YubiKey principal (PIV)",
