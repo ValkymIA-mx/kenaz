@@ -6,7 +6,7 @@
 
 Kenaz is a free, open-source desktop app that walks everyday people through protecting their accounts with a physical security key (YubiKey): passkeys, 6-digit codes, and a spare key so losing one isn't a disaster. It explains, in plain language, what to do with the key, in what order, and how not to get locked out.
 
-> **Status: design stage.** There is no app to install yet. This repository holds the product design, the roadmap and the recovery sheet template. Kenaz is a community tool with best-effort support.
+> **Status: M0 spikes in progress.** There is no app to install yet. Standalone experiments, bilingual paper prototypes and initial content drafts accompany the product design and recovery sheet template. See the [M0 evidence report](docs/reports/2026-11-09-m0-progress.md). Kenaz is a community tool with best-effort support.
 
 ## What it helps you do
 
@@ -78,6 +78,6 @@ Kenaz is a community project. Help is best-effort, with no guaranteed response t
 
 ## Licence
 
-Open source. The licence will be GPL-3.0, the terms under which the project uses Slint; the `LICENSE` file is added with the first code.
+Open source under [GPL-3.0-only](LICENSE), compatible with the terms under which the project uses Slint. Bundled fonts retain their own licences in `spikes/sheet/fonts/`.
 
 Kenaz is not affiliated with or endorsed by Yubico. YubiKey and Yubico are trademarks of Yubico AB.

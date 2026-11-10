@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kenaz.example/schemas/site-list-draft.json",
+  "title": "Kenaz M0 draft localized site list",
+  "description": "Draft only: supported requires primary-source evidence for that exact method; unknown is not false. Physical-key passkey excludes platform-only or synced passkeys.",
+  "type": "object",
+  "properties": {
+    "locale": {
+      "enum": [
+        "en",
+        "es"
+      ]
+    },
+    "status": {
+      "const": "draft"
+    },
+    "sites": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "enum": [
+              "email",
+              "social",
+              "cloud",
+              "developer",
+              "password_manager"
+            ]
+          },
+          "settings_url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          },
+          "methods": {
+            "type": "object",
+            "properties": {
+              "physical_key_passkey": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "unsupported",
+                  "unknown"
+                ]
+              },
+              "security_key_after_password": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "unsupported",
+                  "unknown"
+                ]
+              },
+              "totp_codes": {
+                "type": "string",
+                "enum": [
+                  "supported",
+                  "unsupported",
+                  "unknown"
+                ]
+              }
+            },
+            "required": [
+              "physical_key_passkey",
+              "security_key_after_password",
+              "totp_codes"
+            ],
+            "additionalProperties": false
+          },
+          "backup_codes": {
+            "type": "string",
+            "enum": [
+              "supported",
+              "unsupported",
+              "unknown"
+            ]
+          },
+          "evidence_note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "^https://"
+                },
+                "checked_on": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "scope": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "url",
+                "checked_on",
+                "scope"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "steps": {
+            "type": "array",
+            "minItems": 3,
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "image": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "const": "pending_d15"
+                    },
+                    "alt": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "alt"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "text",
+                "image"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "category",
+          "settings_url",
+          "methods",
+          "backup_codes",
+          "evidence_note",
+          "sources",
+          "steps"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "locale",
+    "status",
+    "sites"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,566 @@
+{
+  "locale": "en",
+  "status": "draft",
+  "sites": [
+    {
+      "id": "google",
+      "name": "Gmail (Google)",
+      "category": "email",
+      "settings_url": "https://myaccount.google.com/security",
+      "methods": {
+        "physical_key_passkey": "supported",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://support.google.com/accounts/answer/6103523?hl=en",
+          "checked_on": "2026-11-09",
+          "scope": "Physical FIDO2 passkey and security-key second step; seven-day delay possible."
+        },
+        {
+          "url": "https://support.google.com/accounts/answer/1187538?hl=en",
+          "checked_on": "2026-11-09",
+          "scope": "Backup codes."
+        },
+        {
+          "url": "https://support.google.com/accounts/answer/1066447?hl=en",
+          "checked_on": "2026-11-09",
+          "scope": "Authenticator codes for Google accounts."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to your Google Account and open Security.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to your Google Account and open Security."
+          }
+        },
+        {
+          "text": "Open Passkeys and security keys, then choose to create a passkey.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Open Passkeys and security keys, then choose to create a passkey."
+          }
+        },
+        {
+          "text": "Choose the external security key in your browser, insert your YubiKey and follow the PIN and touch prompts.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Choose the external security key in your browser, insert your YubiKey and follow the PIN and touch prompts."
+          }
+        },
+        {
+          "text": "Register your spare separately, naming each key if offered.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Register your spare separately, naming each key if offered."
+          }
+        },
+        {
+          "text": "Save Google backup codes somewhere private; a new security key may take up to seven days to work.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Save Google backup codes somewhere private; a new security key may take up to seven days to work."
+          }
+        }
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Outlook / Hotmail (Microsoft)",
+      "category": "email",
+      "settings_url": "https://account.microsoft.com/security",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "unknown",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/accounts-billing/security/how-to-use-two-step-verification-with-your-microsoft-account",
+          "checked_on": "2026-11-09",
+          "scope": "Personal account security and authenticator setup."
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/accounts-billing/manage/how-to-get-a-microsoft-account-recovery-code",
+          "checked_on": "2026-11-09",
+          "scope": "Personal account recovery code."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to your personal Microsoft account and open Security.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to your personal Microsoft account and open Security."
+          }
+        },
+        {
+          "text": "Choose Manage how I sign in and turn on two-step verification under Additional security.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Choose Manage how I sign in and turn on two-step verification under Additional security."
+          }
+        },
+        {
+          "text": "Follow the authenticator setup instructions; use the setup QR or link to add the same code secret to both compatible keys.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Follow the authenticator setup instructions; use the setup QR or link to add the same code secret to both compatible keys."
+          }
+        },
+        {
+          "text": "Enter the current six-digit code to confirm if prompted.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Enter the current six-digit code to confirm if prompted."
+          }
+        },
+        {
+          "text": "Keep the account recovery code in a private place; follow Microsoft’s other recovery recommendations too.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Keep the account recovery code in a private place; follow Microsoft’s other recovery recommendations too."
+          }
+        }
+      ]
+    },
+    {
+      "id": "proton",
+      "name": "Proton Mail",
+      "category": "email",
+      "settings_url": "https://account.proton.me/account-password",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://proton.me/support/2fa-security-key",
+          "checked_on": "2026-11-09",
+          "scope": "Physical security key setup, authenticator alternative and 2FA recovery codes."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to Proton and open Account and password.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to Proton and open Account and password."
+          }
+        },
+        {
+          "text": "Under Two-factor authentication turn on Security Key; leave Allow platform keys unchecked.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Under Two-factor authentication turn on Security Key; leave Allow platform keys unchecked."
+          }
+        },
+        {
+          "text": "Insert your YubiKey, continue, touch it when asked and give it a name.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Insert your YubiKey, continue, touch it when asked and give it a name."
+          }
+        },
+        {
+          "text": "Add your spare separately and name it so you can distinguish it.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Add your spare separately and name it so you can distinguish it."
+          }
+        },
+        {
+          "text": "Keep the 2FA recovery codes in a private place.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Keep the 2FA recovery codes in a private place."
+          }
+        }
+      ]
+    },
+    {
+      "id": "tuta",
+      "name": "Tuta Mail",
+      "category": "email",
+      "settings_url": "https://app.tuta.com/",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "unknown",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://tuta.com/support/general",
+          "checked_on": "2026-11-09",
+          "scope": "Tuta documents U2F security keys and TOTP; review exact account settings before release."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to Tuta and open account settings.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to Tuta and open account settings."
+          }
+        },
+        {
+          "text": "Find two-factor authentication and choose a U2F security key.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Find two-factor authentication and choose a U2F security key."
+          }
+        },
+        {
+          "text": "Insert your YubiKey and follow the browser prompt to register it.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Insert your YubiKey and follow the browser prompt to register it."
+          }
+        },
+        {
+          "text": "If offered, repeat the registration for your spare and keep any recovery information private.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "If offered, repeat the registration for your spare and keep any recovery information private."
+          }
+        }
+      ]
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "category": "social",
+      "settings_url": "https://www.facebook.com/settings",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "unknown",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "unknown",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://www.facebook.com/help/358336074294704",
+          "checked_on": "2026-11-09",
+          "scope": "Authenticator app for Facebook two-factor authentication."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to Facebook and open Settings, then Accounts Center.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to Facebook and open Settings, then Accounts Center."
+          }
+        },
+        {
+          "text": "Open Password and security, then Two-factor authentication, and select your account.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Open Password and security, then Two-factor authentication, and select your account."
+          }
+        },
+        {
+          "text": "Choose an authentication app and use its setup QR or link to add the same code secret to both compatible keys.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Choose an authentication app and use its setup QR or link to add the same code secret to both compatible keys."
+          }
+        },
+        {
+          "text": "Enter the current six-digit code if requested and keep any recovery codes private.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Enter the current six-digit code if requested and keep any recovery codes private."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dropbox",
+      "name": "Dropbox",
+      "category": "cloud",
+      "settings_url": "https://www.dropbox.com/account/security",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://help.dropbox.com/account-access/enable-2-factor-authentication",
+          "checked_on": "2026-11-09",
+          "scope": "Physical security keys require prior code-based 2FA; TOTP and emergency codes."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to Dropbox, open Settings and select Security.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to Dropbox, open Settings and select Security."
+          }
+        },
+        {
+          "text": "Turn on two-factor authentication with an authenticator app first; save the emergency recovery codes privately.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Turn on two-factor authentication with an authenticator app first; save the emergency recovery codes privately."
+          }
+        },
+        {
+          "text": "Under two-factor authentication, choose Add next to Security keys.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Under two-factor authentication, choose Add next to Security keys."
+          }
+        },
+        {
+          "text": "Insert your YubiKey and follow Begin setup and browser prompts; add your spare separately.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Insert your YubiKey and follow Begin setup and browser prompts; add your spare separately."
+          }
+        },
+        {
+          "text": "Security keys work on dropbox.com in supported browsers, not the desktop or mobile apps.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Security keys work on dropbox.com in supported browsers, not the desktop or mobile apps."
+          }
+        }
+      ]
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "category": "social",
+      "settings_url": "https://discord.com/channels/@me",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://support.discord.com/hc/en-us/articles/25966860846231-Security-Keys-Passkeys-and-Passwordless-Login-on-Discord",
+          "checked_on": "2026-11-09",
+          "scope": "Security key second step and backup codes; physical-key passwordless sign-in not established."
+        },
+        {
+          "url": "https://support.discord.com/hc/en-us/articles/26304482627095-Using-an-Authenticator-App-on-Discord",
+          "checked_on": "2026-11-09",
+          "scope": "Authenticator app."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to Discord in the desktop app or browser and open User Settings.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to Discord in the desktop app or browser and open User Settings."
+          }
+        },
+        {
+          "text": "Under My Account, find Password and Authentication and choose Register a Security Key.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Under My Account, find Password and Authentication and choose Register a Security Key."
+          }
+        },
+        {
+          "text": "Confirm your identity, insert your YubiKey and follow the browser or system prompts.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Confirm your identity, insert your YubiKey and follow the browser or system prompts."
+          }
+        },
+        {
+          "text": "Register your spare separately and give each key a recognizable name.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Register your spare separately and give each key a recognizable name."
+          }
+        },
+        {
+          "text": "Save the backup codes in a private place.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Save the backup codes in a private place."
+          }
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "category": "developer",
+      "settings_url": "https://github.com/settings/security",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication",
+          "checked_on": "2026-11-09",
+          "scope": "TOTP, security key after password, recovery codes; passkeys described but physical passkey not established here."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to GitHub and open Settings, then Password and authentication.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to GitHub and open Settings, then Password and authentication."
+          }
+        },
+        {
+          "text": "First enable two-factor authentication with an authenticator app or SMS and keep the recovery codes private.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "First enable two-factor authentication with an authenticator app or SMS and keep the recovery codes private."
+          }
+        },
+        {
+          "text": "Next to Security keys choose Add and Register new security key.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Next to Security keys choose Add and Register new security key."
+          }
+        },
+        {
+          "text": "Name your YubiKey and follow the prompt to activate it; register your spare separately.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Name your YubiKey and follow the prompt to activate it; register your spare separately."
+          }
+        }
+      ]
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab.com",
+      "category": "developer",
+      "settings_url": "https://gitlab.com/-/profile/account",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://docs.gitlab.com/user/profile/account/two_factor_authentication/",
+          "checked_on": "2026-11-09",
+          "scope": "WebAuthn security key, TOTP and recovery codes; passkeys described separately."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to GitLab.com; open Edit profile, Access, then Password and authentication.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to GitLab.com; open Edit profile, Access, then Password and authentication."
+          }
+        },
+        {
+          "text": "Under WebAuthn devices choose Register device and Set up new device.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Under WebAuthn devices choose Register device and Set up new device."
+          }
+        },
+        {
+          "text": "Insert your YubiKey and follow the browser prompts; enter your password and a device name if requested.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Insert your YubiKey and follow the browser prompts; enter your password and a device name if requested."
+          }
+        },
+        {
+          "text": "Download and privately keep recovery codes; register the spare separately.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Download and privately keep recovery codes; register the spare separately."
+          }
+        }
+      ]
+    },
+    {
+      "id": "bitwarden",
+      "name": "Bitwarden",
+      "category": "password_manager",
+      "settings_url": "https://vault.bitwarden.com/#/settings/security/two-factor",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://bitwarden.com/help/setup-two-step-login/",
+          "checked_on": "2026-11-09",
+          "scope": "Authenticator and other two-step login methods; verify physical-key plan requirements before using."
+        },
+        {
+          "url": "https://bitwarden.com/help/setup-two-step-login-fido/",
+          "checked_on": "2026-11-09",
+          "scope": "YubiKey as a second step, setup, recovery code and free availability."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Sign in to the Bitwarden web vault and open Settings, Security, Two-step login.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sign in to the Bitwarden web vault and open Settings, Security, Two-step login."
+          }
+        },
+        {
+          "text": "Choose Manage next to Passkey and enter your master password.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Choose Manage next to Passkey and enter your master password."
+          }
+        },
+        {
+          "text": "Name your security key, insert your YubiKey, choose Read Key and touch it; select another option if the system offers a platform passkey.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Name your security key, insert your YubiKey, choose Read Key and touch it; select another option if the system offers a platform passkey."
+          }
+        },
+        {
+          "text": "Save it and register your spare separately. Keep the two-step recovery code in a private place.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Save it and register your spare separately. Keep the two-step recovery code in a private place."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+import { Button, LineEdit } from "std-widgets.slint";
+
+export component SpikeWindow inherits Window {
+    title: @tr("Spike" => "Kenaz UI spike");
+    width: 480px;
+    height: 280px;
+    in-out property <bool> spanish: false;
+    in-out property <bool> prompt-active: false;
+    callback switch-language();
+
+    VerticalLayout {
+        padding: 24px;
+        spacing: 12px;
+        Text { text: @tr("Spike" => "Account name"); }
+        Rectangle {
+            height: 42px;
+            border-width: field.has-focus ? 3px : 0px;
+            border-color: #005fcc;
+            field := LineEdit {
+                x: 4px; y: 4px;
+                width: parent.width - 8px; height: parent.height - 8px;
+                placeholder-text: @tr("Spike" => "Enter an account name");
+                accessible-label: @tr("Spike" => "Account name");
+            }
+        }
+        Rectangle {
+            height: 44px;
+            border-width: switcher.has-focus ? 3px : 0px;
+            border-color: #005fcc;
+            switcher := Button {
+                x: 4px; y: 4px;
+                width: parent.width - 8px; height: parent.height - 8px;
+                text: @tr("Spike" => "Switch language / Cambiar idioma");
+                clicked => { root.switch-language(); }
+            }
+        }
+        Text {
+            text: root.prompt-active ? @tr("Spike" => "Touch your key") : @tr("Spike" => "Waiting for a key");
+            accessible-live-region: polite;
+        }
+    }
+}

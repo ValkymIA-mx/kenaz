@@ -1,0 +1,29 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: es\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "Spike"
+msgid "Kenaz UI spike"
+msgstr "Prueba de interfaz de Kenaz"
+
+msgctxt "Spike"
+msgid "Account name"
+msgstr "Nombre de la cuenta"
+
+msgctxt "Spike"
+msgid "Enter an account name"
+msgstr "Escribe el nombre de una cuenta"
+
+msgctxt "Spike"
+msgid "Switch language / Cambiar idioma"
+msgstr "Cambiar idioma / Switch language"
+
+msgctxt "Spike"
+msgid "Touch your key"
+msgstr "Toca tu llave"
+
+msgctxt "Spike"
+msgid "Waiting for a key"
+msgstr "Esperando una llave"

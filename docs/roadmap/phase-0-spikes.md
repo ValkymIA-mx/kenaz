@@ -4,6 +4,8 @@
 
 **Depends on:** nothing. All lanes start at once.
 
+**Status: in progress.** See the [2026-11-09 evidence report](../reports/2026-11-09-m0-progress.md) for runnable spikes, results and blockers. D5 is decided; D1–D4 and D7 remain open. Host-only software runs do not satisfy hardware or guest gates, and U0 has not run.
+
 ## KEY
 
 - [ ] Pin `yubikit = "=1.0.0-beta.0"`. Enumerate keys over PC/SC (`pcscd`) and HID on Linux; read model, serial, firmware, form factor, NFC and enabled applets.
@@ -31,21 +33,21 @@
 
 Not blocked by any spike; starts now so M1 wireframes rest on tested ideas.
 
-- [ ] Information architecture: home screen, task list (W1–W5 first, W8–W13 appearing after the first protected account), codes, status, checklist, advanced details. One map of every screen and how the user gets to it.
-- [ ] Journey map for W1, W2 and W6 from `IDEA.md`, marking every moment the user handles a key (plug, unplug, swap, touch) or leaves the app (browser, printer).
+- [x] Information architecture: home screen, task list (W1–W5 first, W8–W13 appearing after the first protected account), codes, status, checklist, advanced details. One map of every screen and how the user gets to it.
+- [x] Journey map for W1, W2 and W6 from `IDEA.md`, marking every moment the user handles a key (plug, unplug, swap, touch) or leaves the app (browser, printer).
 - [ ] Paper or clickable prototype of the home screen, W1 and W2; run U0 (see [overview](overview.md#usability-rounds)) and record the findings in `docs/reports/`.
 
 ## SHEET
 
-- [ ] D5: render `recovery-sheet.typ` with `example.json` from Rust, offline, fonts bundled. Compare against `example-es.pdf` / `example-en.pdf`.
-- [ ] Generate the `qr_svg` values from an `otpauth://` URI in Rust.
+- [x] D5: render `recovery-sheet.typ` with `example.json` from Rust, offline, fonts bundled. Compare against `example-es.pdf` / `example-en.pdf`.
+- [x] Generate the `qr_svg` values from an `otpauth://` URI in Rust.
 
 ## CONTENT
 
 Not blocked by any spike; starts now and runs through M2.
 
-- [ ] Draft the site list schema and the first 10 sites per language (email providers first), with methods each site supports.
-- [ ] Plain-language glossary: user term ↔ real term (for the advanced details view).
+- [x] Draft the site list schema and the first 10 sites per language (email providers first), with methods each site supports.
+- [x] Plain-language glossary: user term ↔ real term (for the advanced details view).
 
 ## Exit criteria
 

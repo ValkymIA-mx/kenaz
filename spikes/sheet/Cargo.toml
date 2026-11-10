@@ -1,0 +1,18 @@
+[package]
+name = "sheet-spike"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.92"
+license = "GPL-3.0-only"
+publish = false
+
+[features]
+embedded = ["dep:typst", "dep:typst-layout", "dep:typst-pdf"]
+
+[dependencies]
+qrcode = { version = "=0.14.1", default-features = false, features = ["svg"] }
+serde_json = "=1.0.145"
+url = "=2.5.7"
+typst = { version = "=0.15.0", optional = true }
+typst-layout = { version = "=0.15.0", optional = true }
+typst-pdf = { version = "=0.15.0", optional = true }

@@ -6,7 +6,7 @@
 
 Kenaz es una app de escritorio libre y de código abierto que guía a cualquier persona para proteger sus cuentas con una llave de seguridad física (YubiKey): llaves de acceso (passkeys), códigos de 6 dígitos y una llave de respaldo para que perder una no sea un desastre. Explica, en lenguaje llano, qué hacer con la llave, en qué orden y cómo no quedarse fuera.
 
-> **Estado: en diseño.** Todavía no hay app para instalar. Este repositorio contiene el diseño del producto, el plan de trabajo y la plantilla de la hoja de recuperación. Kenaz es una herramienta comunitaria con soporte best-effort (sin garantías).
+> **Estado: experimentos de M0 en curso.** Todavía no hay app para instalar. Hay experimentos independientes, prototipos en papel en ambos idiomas y borradores de contenido, además del diseño y la plantilla de recuperación. Consulta el [informe de M0](docs/reports/2026-11-09-m0-progress.md). Kenaz es una herramienta comunitaria con soporte best-effort (sin garantías).
 
 ## En qué te ayuda
 
@@ -80,6 +80,6 @@ Kenaz es un proyecto comunitario. La ayuda es best-effort: sin tiempo de respues
 
 ## Licencia
 
-Código abierto. La licencia será GPL-3.0, los términos con los que el proyecto usa Slint; el archivo `LICENSE` se agrega con el primer código.
+Código abierto bajo [GPL-3.0-only](LICENSE), compatible con los términos con los que el proyecto usa Slint. Las fuentes incluidas conservan sus propias licencias en `spikes/sheet/fonts/`.
 
 Kenaz no está afiliado ni respaldado por Yubico. YubiKey y Yubico son marcas registradas de Yubico AB.

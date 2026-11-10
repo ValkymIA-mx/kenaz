@@ -1,0 +1,17 @@
+[package]
+name = "kenaz-vault-spikes"
+version = "0.1.0"
+edition = "2021"
+publish = false
+rust-version = "1.92"
+license = "GPL-3.0-only"
+
+[dependencies]
+age = "=0.11.2"
+age-core = "=0.11.0"
+pgp = "=0.21.0"
+rand = "=0.8.8"
+rcgen = "=0.13.2"
+sequoia-openpgp = { version = "=2.4.2", default-features = false, features = ["crypto-rust", "allow-experimental-crypto", "allow-variable-time-crypto", "compression"] }
+p256 = { version = "=0.13.2", features = ["ecdsa", "pkcs8"] }
+x509-cert = { version = "=0.2.5", features = ["builder"] }

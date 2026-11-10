@@ -2,6 +2,8 @@
 
 Source: `IDEA.md` (accepted 2026-11-09). Scope, principles and workflow numbers (W1–W13) refer to that document.
 
+**Current work:** [M0 is in progress](../reports/2026-11-09-m0-progress.md). D5 is recorded; hardware/plugin, VM/accessibility and U0 exit gates remain open.
+
 **Platform order:** Linux first, then Windows. M0–M4 build and verify on Linux only (x86-64, plus ARM64 cross-built and run in an emulated VM); M5 ports the feature-complete app to Windows; M6 ships **1.0 on Linux and Windows**. macOS (M7) is outside 1.0 and happens only if an external contributor with Mac hardware takes it on ([decision](../decisions/2026-11-09-release-platforms-and-test-hardware.md)). On Linux only Wayland sessions are supported; only the latest release of each OS is tested, plus Ubuntu LTS. All testing runs on VMs with the keys passed through over USB: see the [development environment](../runbooks/dev-environment.md).
 
 ## Milestones
@@ -76,7 +78,7 @@ Each one becomes `docs/decisions/YYYY-MM-DD-<topic>.md` when made.
 | D2 | Which unlock option(s) ship in M2, and which one the app recommends (`IDEA.md`: still open) | M0, on Linux facts; re-checked in M5 | VAULT, CONTENT in M2 |
 | D3 | OpenPGP library: `sequoia-openpgp` or `pgp` (rPGP) | M0 | M4c |
 | D4 | X.509 library: `rcgen` or `x509-cert` | M0 | M4b |
-| D5 | Recovery sheet rendering: embed the `typst` crate or ship the Typst CLI | M0 | SHEET in M1 |
+| D5 | [Embed Typst for recovery sheets](../decisions/2026-11-09-recovery-sheet-renderer.md); CLI retained for editing/comparison | M0 — decided | SHEET in M1 |
 | D6 | Windows: does CTAP2 over CCID on USB avoid the admin prompt? Firmware 5.8 supports FIDO over CCID; check 5.8 keys and whether older firmware does it too | M5 | Windows passkey screens, D2 re-check |
 | D7 | `yubikit` go/no-go and the trigger for the `ctap-hid-fido2` + `pcsc` fallback | M0, revisited each milestone | KEY |
 | D8 | When the PIV and OpenPGP PINs are changed from factory: at W1, or when PIV/OpenPGP is first set up | M1 | CORE in M2 |

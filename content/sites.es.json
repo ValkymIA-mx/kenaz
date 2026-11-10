@@ -1,0 +1,566 @@
+{
+  "locale": "es",
+  "status": "draft",
+  "sites": [
+    {
+      "id": "google",
+      "name": "Gmail (Google)",
+      "category": "email",
+      "settings_url": "https://myaccount.google.com/security",
+      "methods": {
+        "physical_key_passkey": "supported",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://support.google.com/accounts/answer/6103523?hl=en",
+          "checked_on": "2026-11-09",
+          "scope": "Physical FIDO2 passkey and security-key second step; seven-day delay possible."
+        },
+        {
+          "url": "https://support.google.com/accounts/answer/1187538?hl=en",
+          "checked_on": "2026-11-09",
+          "scope": "Backup codes."
+        },
+        {
+          "url": "https://support.google.com/accounts/answer/1066447?hl=en",
+          "checked_on": "2026-11-09",
+          "scope": "Authenticator codes for Google accounts."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en tu cuenta de Google y abre Seguridad.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en tu cuenta de Google y abre Seguridad."
+          }
+        },
+        {
+          "text": "Abre Llaves de acceso y llaves de seguridad y elige crear una llave de acceso.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Abre Llaves de acceso y llaves de seguridad y elige crear una llave de acceso."
+          }
+        },
+        {
+          "text": "En el navegador, elige la llave de seguridad externa, conecta tu YubiKey y sigue las indicaciones de PIN y toque.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "En el navegador, elige la llave de seguridad externa, conecta tu YubiKey y sigue las indicaciones de PIN y toque."
+          }
+        },
+        {
+          "text": "Registra tu llave de repuesto por separado y asigna nombres si se ofrece la opción.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Registra tu llave de repuesto por separado y asigna nombres si se ofrece la opción."
+          }
+        },
+        {
+          "text": "Guarda los códigos de respaldo de Google en un lugar privado; una llave nueva puede tardar hasta siete días en funcionar.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Guarda los códigos de respaldo de Google en un lugar privado; una llave nueva puede tardar hasta siete días en funcionar."
+          }
+        }
+      ]
+    },
+    {
+      "id": "microsoft",
+      "name": "Outlook / Hotmail (Microsoft)",
+      "category": "email",
+      "settings_url": "https://account.microsoft.com/security",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "unknown",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://support.microsoft.com/en-us/accounts-billing/security/how-to-use-two-step-verification-with-your-microsoft-account",
+          "checked_on": "2026-11-09",
+          "scope": "Personal account security and authenticator setup."
+        },
+        {
+          "url": "https://support.microsoft.com/en-us/accounts-billing/manage/how-to-get-a-microsoft-account-recovery-code",
+          "checked_on": "2026-11-09",
+          "scope": "Personal account recovery code."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en tu cuenta personal de Microsoft y abre Seguridad.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en tu cuenta personal de Microsoft y abre Seguridad."
+          }
+        },
+        {
+          "text": "Elige Administrar cómo inicio sesión y activa la verificación en dos pasos en Seguridad adicional.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Elige Administrar cómo inicio sesión y activa la verificación en dos pasos en Seguridad adicional."
+          }
+        },
+        {
+          "text": "Sigue las indicaciones del autenticador; usa el QR o enlace de configuración para agregar el mismo secreto a ambas llaves compatibles.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Sigue las indicaciones del autenticador; usa el QR o enlace de configuración para agregar el mismo secreto a ambas llaves compatibles."
+          }
+        },
+        {
+          "text": "Si se solicita, introduce el código actual de seis dígitos para confirmar.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Si se solicita, introduce el código actual de seis dígitos para confirmar."
+          }
+        },
+        {
+          "text": "Guarda el código de recuperación de la cuenta en un lugar privado y sigue las demás recomendaciones de recuperación de Microsoft.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Guarda el código de recuperación de la cuenta en un lugar privado y sigue las demás recomendaciones de recuperación de Microsoft."
+          }
+        }
+      ]
+    },
+    {
+      "id": "proton",
+      "name": "Proton Mail",
+      "category": "email",
+      "settings_url": "https://account.proton.me/account-password",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://proton.me/support/2fa-security-key",
+          "checked_on": "2026-11-09",
+          "scope": "Physical security key setup, authenticator alternative and 2FA recovery codes."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en Proton y abre Cuenta y contraseña.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en Proton y abre Cuenta y contraseña."
+          }
+        },
+        {
+          "text": "En Autenticación de dos factores activa Llave de seguridad; deja desmarcada la opción de permitir llaves de plataforma.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "En Autenticación de dos factores activa Llave de seguridad; deja desmarcada la opción de permitir llaves de plataforma."
+          }
+        },
+        {
+          "text": "Conecta tu YubiKey, continúa, tócala cuando se indique y asígnale un nombre.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Conecta tu YubiKey, continúa, tócala cuando se indique y asígnale un nombre."
+          }
+        },
+        {
+          "text": "Agrega la llave de repuesto por separado y ponle un nombre para distinguirla.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Agrega la llave de repuesto por separado y ponle un nombre para distinguirla."
+          }
+        },
+        {
+          "text": "Guarda los códigos de recuperación de dos factores en un lugar privado.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Guarda los códigos de recuperación de dos factores en un lugar privado."
+          }
+        }
+      ]
+    },
+    {
+      "id": "tuta",
+      "name": "Tuta Mail",
+      "category": "email",
+      "settings_url": "https://app.tuta.com/",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "unknown",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://tuta.com/support/general",
+          "checked_on": "2026-11-09",
+          "scope": "Tuta documents U2F security keys and TOTP; review exact account settings before release."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en Tuta y abre la configuración de la cuenta.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en Tuta y abre la configuración de la cuenta."
+          }
+        },
+        {
+          "text": "Busca la autenticación de dos factores y elige una llave de seguridad U2F.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Busca la autenticación de dos factores y elige una llave de seguridad U2F."
+          }
+        },
+        {
+          "text": "Conecta tu YubiKey y sigue la indicación del navegador para registrarla.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Conecta tu YubiKey y sigue la indicación del navegador para registrarla."
+          }
+        },
+        {
+          "text": "Si se ofrece la opción, repite el registro para la llave de repuesto y guarda cualquier información de recuperación en privado.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Si se ofrece la opción, repite el registro para la llave de repuesto y guarda cualquier información de recuperación en privado."
+          }
+        }
+      ]
+    },
+    {
+      "id": "facebook",
+      "name": "Facebook",
+      "category": "social",
+      "settings_url": "https://www.facebook.com/settings",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "unknown",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "unknown",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://www.facebook.com/help/358336074294704",
+          "checked_on": "2026-11-09",
+          "scope": "Authenticator app for Facebook two-factor authentication."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en Facebook y abre Configuración y luego el Centro de cuentas.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en Facebook y abre Configuración y luego el Centro de cuentas."
+          }
+        },
+        {
+          "text": "Abre Contraseña y seguridad y después Autenticación en dos pasos; selecciona tu cuenta.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Abre Contraseña y seguridad y después Autenticación en dos pasos; selecciona tu cuenta."
+          }
+        },
+        {
+          "text": "Elige una aplicación de autenticación y usa su QR o enlace de configuración para agregar el mismo secreto a ambas llaves compatibles.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Elige una aplicación de autenticación y usa su QR o enlace de configuración para agregar el mismo secreto a ambas llaves compatibles."
+          }
+        },
+        {
+          "text": "Introduce el código actual de seis dígitos si se solicita y guarda en privado los códigos de recuperación que aparezcan.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Introduce el código actual de seis dígitos si se solicita y guarda en privado los códigos de recuperación que aparezcan."
+          }
+        }
+      ]
+    },
+    {
+      "id": "dropbox",
+      "name": "Dropbox",
+      "category": "cloud",
+      "settings_url": "https://www.dropbox.com/account/security",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://help.dropbox.com/account-access/enable-2-factor-authentication",
+          "checked_on": "2026-11-09",
+          "scope": "Physical security keys require prior code-based 2FA; TOTP and emergency codes."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en Dropbox, abre Configuración y selecciona Seguridad.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en Dropbox, abre Configuración y selecciona Seguridad."
+          }
+        },
+        {
+          "text": "Primero activa la autenticación de dos factores con una aplicación autenticadora; guarda en privado los códigos de recuperación de emergencia.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Primero activa la autenticación de dos factores con una aplicación autenticadora; guarda en privado los códigos de recuperación de emergencia."
+          }
+        },
+        {
+          "text": "En autenticación de dos factores, elige Agregar junto a Llaves de seguridad.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "En autenticación de dos factores, elige Agregar junto a Llaves de seguridad."
+          }
+        },
+        {
+          "text": "Conecta tu YubiKey y sigue las indicaciones de inicio y del navegador; agrega la llave de repuesto por separado.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Conecta tu YubiKey y sigue las indicaciones de inicio y del navegador; agrega la llave de repuesto por separado."
+          }
+        },
+        {
+          "text": "Las llaves de seguridad funcionan en dropbox.com con navegadores compatibles, no en las aplicaciones de escritorio o móviles.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Las llaves de seguridad funcionan en dropbox.com con navegadores compatibles, no en las aplicaciones de escritorio o móviles."
+          }
+        }
+      ]
+    },
+    {
+      "id": "discord",
+      "name": "Discord",
+      "category": "social",
+      "settings_url": "https://discord.com/channels/@me",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://support.discord.com/hc/en-us/articles/25966860846231-Security-Keys-Passkeys-and-Passwordless-Login-on-Discord",
+          "checked_on": "2026-11-09",
+          "scope": "Security key second step and backup codes; physical-key passwordless sign-in not established."
+        },
+        {
+          "url": "https://support.discord.com/hc/en-us/articles/26304482627095-Using-an-Authenticator-App-on-Discord",
+          "checked_on": "2026-11-09",
+          "scope": "Authenticator app."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en Discord desde la aplicación de escritorio o el navegador y abre Ajustes de usuario.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en Discord desde la aplicación de escritorio o el navegador y abre Ajustes de usuario."
+          }
+        },
+        {
+          "text": "En Mi cuenta, busca Contraseña y autenticación y elige Registrar una llave de seguridad.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "En Mi cuenta, busca Contraseña y autenticación y elige Registrar una llave de seguridad."
+          }
+        },
+        {
+          "text": "Confirma tu identidad, conecta tu YubiKey y sigue las indicaciones del navegador o del sistema.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Confirma tu identidad, conecta tu YubiKey y sigue las indicaciones del navegador o del sistema."
+          }
+        },
+        {
+          "text": "Registra por separado la llave de repuesto y pon a cada una un nombre reconocible.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Registra por separado la llave de repuesto y pon a cada una un nombre reconocible."
+          }
+        },
+        {
+          "text": "Guarda los códigos de respaldo en un lugar privado.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Guarda los códigos de respaldo en un lugar privado."
+          }
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "category": "developer",
+      "settings_url": "https://github.com/settings/security",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication",
+          "checked_on": "2026-11-09",
+          "scope": "TOTP, security key after password, recovery codes; passkeys described but physical passkey not established here."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en GitHub y abre Settings y después Password and authentication.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en GitHub y abre Settings y después Password and authentication."
+          }
+        },
+        {
+          "text": "Primero activa la autenticación de dos factores con una aplicación autenticadora o SMS y guarda los códigos de recuperación en privado.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Primero activa la autenticación de dos factores con una aplicación autenticadora o SMS y guarda los códigos de recuperación en privado."
+          }
+        },
+        {
+          "text": "Junto a Security keys elige Add y Register new security key.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Junto a Security keys elige Add y Register new security key."
+          }
+        },
+        {
+          "text": "Ponle nombre a tu YubiKey y sigue la indicación para activarla; registra la llave de repuesto por separado.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Ponle nombre a tu YubiKey y sigue la indicación para activarla; registra la llave de repuesto por separado."
+          }
+        }
+      ]
+    },
+    {
+      "id": "gitlab",
+      "name": "GitLab.com",
+      "category": "developer",
+      "settings_url": "https://gitlab.com/-/profile/account",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://docs.gitlab.com/user/profile/account/two_factor_authentication/",
+          "checked_on": "2026-11-09",
+          "scope": "WebAuthn security key, TOTP and recovery codes; passkeys described separately."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en GitLab.com; abre Edit profile, Access y luego Password and authentication.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en GitLab.com; abre Edit profile, Access y luego Password and authentication."
+          }
+        },
+        {
+          "text": "En WebAuthn devices elige Register device y Set up new device.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "En WebAuthn devices elige Register device y Set up new device."
+          }
+        },
+        {
+          "text": "Conecta tu YubiKey y sigue las indicaciones del navegador; introduce tu contraseña y un nombre para el dispositivo si se solicitan.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Conecta tu YubiKey y sigue las indicaciones del navegador; introduce tu contraseña y un nombre para el dispositivo si se solicitan."
+          }
+        },
+        {
+          "text": "Descarga y guarda en privado los códigos de recuperación; registra la llave de repuesto por separado.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Descarga y guarda en privado los códigos de recuperación; registra la llave de repuesto por separado."
+          }
+        }
+      ]
+    },
+    {
+      "id": "bitwarden",
+      "name": "Bitwarden",
+      "category": "password_manager",
+      "settings_url": "https://vault.bitwarden.com/#/settings/security/two-factor",
+      "methods": {
+        "physical_key_passkey": "unknown",
+        "security_key_after_password": "supported",
+        "totp_codes": "supported"
+      },
+      "backup_codes": "supported",
+      "evidence_note": "Draft from provider help; account type, browser, plan, wording and live flow require review. Unknown is not a claim of absence.",
+      "sources": [
+        {
+          "url": "https://bitwarden.com/help/setup-two-step-login/",
+          "checked_on": "2026-11-09",
+          "scope": "Authenticator and other two-step login methods; verify physical-key plan requirements before using."
+        },
+        {
+          "url": "https://bitwarden.com/help/setup-two-step-login-fido/",
+          "checked_on": "2026-11-09",
+          "scope": "YubiKey as a second step, setup, recovery code and free availability."
+        }
+      ],
+      "steps": [
+        {
+          "text": "Inicia sesión en la bóveda web de Bitwarden y abre Settings, Security, Two-step login.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Inicia sesión en la bóveda web de Bitwarden y abre Settings, Security, Two-step login."
+          }
+        },
+        {
+          "text": "Elige Manage junto a Passkey e introduce tu contraseña maestra.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Elige Manage junto a Passkey e introduce tu contraseña maestra."
+          }
+        },
+        {
+          "text": "Ponle nombre a tu llave, conecta tu YubiKey, elige Read Key y tócala; elige otra opción si el sistema ofrece una llave de acceso de plataforma.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Ponle nombre a tu llave, conecta tu YubiKey, elige Read Key y tócala; elige otra opción si el sistema ofrece una llave de acceso de plataforma."
+          }
+        },
+        {
+          "text": "Guárdala y registra la llave de repuesto por separado. Guarda el código de recuperación en un lugar privado.",
+          "image": {
+            "status": "pending_d15",
+            "alt": "Guárdala y registra la llave de repuesto por separado. Guarda el código de recuperación en un lugar privado."
+          }
+        }
+      ]
+    }
+  ]
+}
